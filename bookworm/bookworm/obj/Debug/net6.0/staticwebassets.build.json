@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "V+ljg0NyVqbDnFDZ8TW+yDgMyI0mCepnxSzdR4za/tc=",
+  "Hash": "VhI8FDV7YwA1tpg7lNlAeFrv7Z7MG/4A3YiZ7ZD2w9w=",
   "Source": "bookworm",
   "BasePath": "_content/bookworm",
   "Mode": "Default",
@@ -283,6 +283,25 @@
       "OriginalItemSpec": "wwwroot\\ebooks\\610dc511-1f2e-4024-b03f-4ef570ed9441.pdf"
     },
     {
+      "Identity": "C:\\Users\\kidus\\Documents\\GitHub\\book-worm\\bookworm\\bookworm\\wwwroot\\ebooks\\be37906b-3c95-49c9-b320-6e87387d16a7.epub",
+      "SourceId": "bookworm",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kidus\\Documents\\GitHub\\book-worm\\bookworm\\bookworm\\wwwroot\\",
+      "BasePath": "_content/bookworm",
+      "RelativePath": "ebooks/be37906b-3c95-49c9-b320-6e87387d16a7.epub",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ebooks\\be37906b-3c95-49c9-b320-6e87387d16a7.epub"
+    },
+    {
       "Identity": "C:\\Users\\kidus\\Documents\\GitHub\\book-worm\\bookworm\\bookworm\\wwwroot\\favicon.ico",
       "SourceId": "bookworm",
       "SourceType": "Discovered",
@@ -300,6 +319,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\kidus\\Documents\\GitHub\\book-worm\\bookworm\\bookworm\\wwwroot\\images\\481fc5a5-94b2-4844-99bc-ceccafbc0eae.jpg",
+      "SourceId": "bookworm",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kidus\\Documents\\GitHub\\book-worm\\bookworm\\bookworm\\wwwroot\\",
+      "BasePath": "_content/bookworm",
+      "RelativePath": "images/481fc5a5-94b2-4844-99bc-ceccafbc0eae.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\481fc5a5-94b2-4844-99bc-ceccafbc0eae.jpg"
     },
     {
       "Identity": "C:\\Users\\kidus\\Documents\\GitHub\\book-worm\\bookworm\\bookworm\\wwwroot\\images\\4b334af4-251d-45af-b9fc-317c2012a883.jpg",

@@ -24,17 +24,16 @@ namespace bookworm.Data
         {
             // Configure the relationship between Review and Book
             modelBuilder.Entity<Review>()
-                .HasOne(r => r.Book)
-                .WithMany()
-                .HasForeignKey(r => r.BookId)
-                .OnDelete(DeleteBehavior.NoAction); // Specify ON DELETE NO ACTION
+                        .HasOne(r => r.User)
+                        .WithMany()
+                        .HasForeignKey(r => r.UserId)
+                        .OnDelete(DeleteBehavior.Restrict);
 
-            // Optionally, you can specify the delete behavior for the relationship between Review and ApplicationUser
             modelBuilder.Entity<Review>()
-                .HasOne(r => r.User)
-                .WithMany()
-                .HasForeignKey(r => r.UserId)
-                .OnDelete(DeleteBehavior.NoAction); // Specify ON DELETE NO ACTION
+                        .HasOne(r => r.Book)
+                        .WithMany()
+                        .HasForeignKey(r => r.BookId)
+                        .OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<WishList>()
                .HasOne(w => w.Book)
                .WithMany() // Assuming one book can be in multiple wishlists

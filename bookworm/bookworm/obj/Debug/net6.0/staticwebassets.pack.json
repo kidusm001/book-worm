@@ -53,8 +53,16 @@
       "PackagePath": "staticwebassets\\ebooks\\610dc511-1f2e-4024-b03f-4ef570ed9441.pdf"
     },
     {
+      "Id": "C:\\Users\\kidus\\Documents\\GitHub\\book-worm\\bookworm\\bookworm\\wwwroot\\ebooks\\be37906b-3c95-49c9-b320-6e87387d16a7.epub",
+      "PackagePath": "staticwebassets\\ebooks\\be37906b-3c95-49c9-b320-6e87387d16a7.epub"
+    },
+    {
       "Id": "C:\\Users\\kidus\\Documents\\GitHub\\book-worm\\bookworm\\bookworm\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\kidus\\Documents\\GitHub\\book-worm\\bookworm\\bookworm\\wwwroot\\images\\481fc5a5-94b2-4844-99bc-ceccafbc0eae.jpg",
+      "PackagePath": "staticwebassets\\images\\481fc5a5-94b2-4844-99bc-ceccafbc0eae.jpg"
     },
     {
       "Id": "C:\\Users\\kidus\\Documents\\GitHub\\book-worm\\bookworm\\bookworm\\wwwroot\\images\\4b334af4-251d-45af-b9fc-317c2012a883.jpg",
