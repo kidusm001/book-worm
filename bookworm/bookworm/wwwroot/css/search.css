@@ -1,0 +1,76 @@
+.navbar-content {
+  background-color: transparent;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  padding: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.navbar-content .cont {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: start;
+  padding: 4rem;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.dropdown-menu .selectedOptionButton {
+  width: 100px;
+}
+.dropdown-menu {
+  width: 150px;
+  height: 20rem;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.dropdown-menu ul {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: 1rem;
+}
+
+.dropdown-menu.options-cont {
+  width: 200px;
+}
+
+.dropdown-menu li {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.dropdown-menu li label {
+  margin: 0;
+}
+
+.book-list {
+  min-height: 600px;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+}

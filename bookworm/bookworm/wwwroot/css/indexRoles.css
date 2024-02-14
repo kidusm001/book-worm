@@ -1,0 +1,43 @@
+.btn {
+  width: fit-content;
+  text-decoration: none;
+}
+
+.content-container h2 {
+  font-size: 3rem;
+}
+
+.create-role-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 3rem;
+}
+.role-card {
+  width: 19rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+  align-items: center;
+  border: 2px solid gray;
+  border-radius: 15px;
+}
+.role-card .role-details {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.btn-container .btn {
+  font-size: 1rem;
+  padding: 0.7rem;
+}
+.role-cards {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  flex-wrap: wrap;
+
+  gap: 5rem;
+}
