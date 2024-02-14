@@ -41,5 +41,6 @@ namespace BookStore.Models
 
         // Navigation property for the category of this book
         public Category Category { get; set; }
+        public ICollection<Review>? Reviews { get; set; }
     }
 }
