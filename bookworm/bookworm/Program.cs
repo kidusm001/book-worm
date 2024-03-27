@@ -6,6 +6,7 @@ using bookworm.Data;
 using BookStore.Models;
 using bookworm.Repository;
 using bookworm.Interfaces;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
@@ -13,8 +14,11 @@ var configuration = builder.Configuration;
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.Configure<StripeSetting>(builder.Configuration.GetSection("StripeSetting"));
 builder.Services.AddScoped<IBookRepository, BookRepository>();
-
+builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
+builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
+builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddDbContext<BookStoreContext>(options => {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
@@ -52,6 +56,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+
 
 app.UseAuthentication();
 app.UseAuthorization();

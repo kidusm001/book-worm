@@ -1,0 +1,89 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="sidebar-container">
+    <aside class="sidebar" data-visible="false">
+        <!-- Sidebar content goes here -->
+        <div class="logo">
+            <a href="#">
+                <img src="~/images/logo-black.png" alt="Logo" />
+                <span>BookWorm</span>
+            </a>
+        </div>
+        <ul>
+            <li>
+                <a asp-controller="Book" asp-action="Index">
+                    <svg width="50px" height="50px" viewBox="0 0 1024 1024" fill="#000000" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path d="M972 520.8c-6.4 0-12-2.4-16.8-7.2L530.4 86.4c-4.8-4.8-11.2-8-18.4-8-6.4 0-12.8 2.4-18.4 8L68.8 512c-4.8 4.8-10.4 7.2-16.8 7.2s-12-2.4-16-6.4c-4.8-4-7.2-8.8-7.2-15.2-0.8-7.2 2.4-14.4 7.2-19.2L458.4 52.8c14.4-14.4 32.8-22.4 52.8-22.4s38.4 8 52.8 22.4L988.8 480c4.8 4.8 7.2 11.2 7.2 18.4 0 7.2-4 13.6-8.8 17.6-4.8 3.2-10.4 4.8-15.2 4.8z"
+                                  fill=""></path>
+                            <path d="M637.6 998.4v-33.6h-33.6V904c0-51.2-41.6-92-92-92-51.2 0-92 41.6-92 92v60.8h-33.6v33.6H196.8c-40.8 0-73.6-32.8-73.6-73.6V509.6c0-13.6 10.4-24 24-24s24 10.4 24 24v415.2c0 14.4 11.2 25.6 25.6 25.6h175.2v-45.6c0-77.6 63.2-140 140-140s140 63.2 140 140v45.6h175.2c14.4 0 25.6-11.2 25.6-25.6V509.6c0-13.6 10.4-24 24-24s24 10.4 24 24v415.2c0 40.8-32.8 73.6-73.6 73.6H637.6z"
+                                  fill=""></path>
+                            <path d="M604 998.4v-48h48v48h-48z m-232 0v-48h48v48h-48z" fill=""></path>
+                        </g>
+                    </svg>
+                    <span>Home</span>
+                </a>
+            </li>
+            @if (User.IsInRole("admin") || User.IsInRole("author"))
+            {
+                <li>
+                    <a asp-controller="Role" asp-action="Dashboard">
+                        <svg width="64px" height="64px" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M9.918 10.0005H7.082C6.66587 9.99708 6.26541 10.1591 5.96873 10.4509C5.67204 10.7427 5.50343 11.1404 5.5 11.5565V17.4455C5.5077 18.3117 6.21584 19.0078 7.082 19.0005H9.918C10.3341 19.004 10.7346 18.842 11.0313 18.5502C11.328 18.2584 11.4966 17.8607 11.5 17.4445V11.5565C11.4966 11.1404 11.328 10.7427 11.0313 10.4509C10.7346 10.1591 10.3341 9.99708 9.918 10.0005Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M9.918 4.0006H7.082C6.23326 3.97706 5.52559 4.64492 5.5 5.4936V6.5076C5.52559 7.35629 6.23326 8.02415 7.082 8.0006H9.918C10.7667 8.02415 11.4744 7.35629 11.5 6.5076V5.4936C11.4744 4.64492 10.7667 3.97706 9.918 4.0006Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M15.082 13.0007H17.917C18.3333 13.0044 18.734 12.8425 19.0309 12.5507C19.3278 12.2588 19.4966 11.861 19.5 11.4447V5.55666C19.4966 5.14054 19.328 4.74282 19.0313 4.45101C18.7346 4.1592 18.3341 3.9972 17.918 4.00066H15.082C14.6659 3.9972 14.2654 4.1592 13.9687 4.45101C13.672 4.74282 13.5034 5.14054 13.5 5.55666V11.4447C13.5034 11.8608 13.672 12.2585 13.9687 12.5503C14.2654 12.8421 14.6659 13.0041 15.082 13.0007Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M15.082 19.0006H17.917C18.7661 19.0247 19.4744 18.3567 19.5 17.5076V16.4936C19.4744 15.6449 18.7667 14.9771 17.918 15.0006H15.082C14.2333 14.9771 13.5256 15.6449 13.5 16.4936V17.5066C13.525 18.3557 14.2329 19.0241 15.082 19.0006Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+            }
+            <li>
+                <a asp-controller="Book" asp-action="PurchasedBooks">
+                    <svg fill="#000000" width="54px" height="54px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <title>book-blank</title>
+                        <path d="M27.75 2c-0-0.414-0.336-0.75-0.75-0.75h-19.8c-0.028-0.001-0.061-0.002-0.094-0.002-1.541 0-2.797 1.22-2.856 2.746l-0 0.005v24.389c0.113 1.331 1.221 2.367 2.572 2.367 0.063 0 0.125-0.002 0.187-0.007l-0.008 0h20c0.414 0 0.75-0.336 0.75-0.75s-0.336-0.75-0.75-0.75v0h-19.8c-0.023 0.001-0.050 0.002-0.077 0.002-0.717 0-1.306-0.547-1.373-1.247l-0-0.006v-1.223c0-0.459 0.584-0.861 1.248-0.861l20.002 0.057c0 0 0.001 0 0.001 0 0.207 0 0.394-0.084 0.529-0.22l0-0c0.017-0.017 0.025-0.041 0.040-0.060 0.047-0.051 0.087-0.11 0.118-0.173l0.002-0.004c0.016-0.049 0.029-0.105 0.034-0.164l0-0.003c0.011-0.035 0.020-0.077 0.025-0.121l0-0.003v-0.002zM26.25 24.471l-15.5-0.044v-21.677h15.5zM5.75 24.686v-20.686c0.067-0.705 0.657-1.252 1.374-1.252 0.027 0 0.054 0.001 0.080 0.002l-0.004-0h2.050v21.672l-2.25-0.006c-0.453 0.002-0.883 0.101-1.269 0.278l0.019-0.008z"></path>
+                    </svg>
+                    <span>Books</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Book" asp-action="MyWishList">
+                    <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier"><path d="M15.75 5H8.25C7.55964 5 7 5.58763 7 6.3125V19L12 15.5L17 19V6.3125C17 5.58763 16.4404 5 15.75 5Z" stroke="#464455" stroke-linecap="round" stroke-linejoin="round"></path></g>
+                    </svg>
+                    <span>Saved</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Cart" asp-action="MyCart">
+                    <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z" stroke="#1C274C" stroke-width="1.5"></path> <path d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z" stroke="#1C274C" stroke-width="1.5"></path> <path d="M2 3L2.26121 3.09184C3.5628 3.54945 4.2136 3.77826 4.58584 4.32298C4.95808 4.86771 4.95808 5.59126 4.95808 7.03836V9.76C4.95808 12.7016 5.02132 13.6723 5.88772 14.5862C6.75412 15.5 8.14857 15.5 10.9375 15.5H12M16.2404 15.5C17.8014 15.5 18.5819 15.5 19.1336 15.0504C19.6853 14.6008 19.8429 13.8364 20.158 12.3075L20.6578 9.88275C21.0049 8.14369 21.1784 7.27417 20.7345 6.69708C20.2906 6.12 18.7738 6.12 17.0888 6.12H11.0235M4.95808 6.12H7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
+                    <span>Cart</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Account" asp-action="Index">
+                    <svg fill="#000000" width="84px" height="84px" viewBox="0 -0.08 20 20" data-name="Capa 1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" stroke="#000000" stroke-width="0.0002">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path d="M14,8.32a1,1,0,0,1-.58-1A1.78,1.78,0,0,0,12.91,6a1.83,1.83,0,0,0-1.31-.58,1.75,1.75,0,0,0-1,.33,1,1,0,0,1-1.17,0,1.73,1.73,0,0,0-1-.32A1.87,1.87,0,0,0,7.09,6a1.77,1.77,0,0,0-.45,1.35,1,1,0,0,1-.59,1,1.77,1.77,0,0,0,0,3.2,1,1,0,0,1,.58,1,1.76,1.76,0,0,0,.46,1.35,1.81,1.81,0,0,0,2.33.25A1.07,1.07,0,0,1,10,14h0a1.06,1.06,0,0,1,.59.19,1.72,1.72,0,0,0,1,.32h0a1.79,1.79,0,0,0,1.31-.58,1.73,1.73,0,0,0,.45-1.34,1,1,0,0,1,.58-1,1.78,1.78,0,0,0,0-3.21Zm-.32,2.53a1.78,1.78,0,0,0-1,1.76,1,1,0,0,1-1.61.91,1.75,1.75,0,0,0-1-.32h0a2,2,0,0,0-1,.33,1.05,1.05,0,0,1-1.34-.16,1,1,0,0,1-.26-.78,1.8,1.8,0,0,0-1-1.75,1,1,0,0,1-.58-.92A1,1,0,0,1,6.37,9a1.79,1.79,0,0,0,1-1.76,1,1,0,0,1,.26-.77,1.07,1.07,0,0,1,.76-.34A1.06,1.06,0,0,1,9,6.32a1.79,1.79,0,0,0,2,0,1,1,0,0,1,1.34.15,1,1,0,0,1,.26.78,1.8,1.8,0,0,0,1,1.75,1,1,0,0,1,0,1.85Z"></path>
+                            <path d="M10,8.08a1.85,1.85,0,1,0,1.85,1.84A1.85,1.85,0,0,0,10,8.08ZM10,11a1.1,1.1,0,1,1,1.1-1.1A1.1,1.1,0,0,1,10,11Z"></path>
+                        </g>
+                    </svg>
+                    <span>Setting</span>
+                </a>
+            </li>
+            <!-- Add more sidebar links as needed -->
+        </ul>
+        <button class="aside-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M3 6h12v2H3zm0 5h18v2H3zm0 5h14v2H3z" />
+            </svg>
+            <span>Menu</span>
+        </button>
+    </aside>
+    <hr class="sidebar-line" />
+</div>

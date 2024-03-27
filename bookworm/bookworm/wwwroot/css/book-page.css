@@ -20,6 +20,7 @@
 }
 
 .book-info-container .head .book-img img {
+  box-shadow: -20px 20px 20px rgba(0, 0, 0, 0.5);
   height: 400px;
 }
 .book-info-container .head .book-head-info {
@@ -53,7 +54,12 @@
 }
 
 .book-body-head .buy-button {
+  background-color: transparent;
+  color: var(--secondary-color);
+  border: none;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 .book-body-head .other-btn {
   text-decoration: none;
@@ -98,6 +104,10 @@
   /*  justify-content: space-between; */
 }
 
+.book-body-container .book-body-content.second-one > div {
+  width: 25rem;
+}
+
 .body-description-cont,
 .body-author-cont {
   display: flex;
@@ -123,4 +133,82 @@
 
 .rating-container {
   width: 40vw;
+}
+
+.book-body-container .book-body-content {
+    justify-content: space-between;
+   
+}
+
+@media (max-width: 1180px) {
+    .book-info-container .head .book-img img {
+        height: 270px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .book-body-container .book-body-content {
+        /* justify-content: space-between; */
+        gap: 3rem;
+    }
+
+    .book-info-container .head .book-head-info h1 {
+        font-size: 2.5rem;
+    }
+
+    .book-info-container {
+        padding: 0;
+    }
+}
+
+@media (max-width: 800px) {
+    .book-body-container .book-body-content {
+        flex-direction: column;
+    }
+
+    .body-description-cont {
+        width: auto;
+    }
+
+    .book-info-container .head {
+        justify-content: space-around;
+        gap: 0;
+    }
+
+    .book-body-head {
+        align-self: center;
+    }
+}
+
+@media (max-width: 492px) {
+    .book-info-container .top-head {
+        height: auto;
+        align-items: center;
+    }
+
+    .book-info-container .head {
+        flex-direction: column;
+    }
+
+    .book-info-container .body {
+        padding: 2.5rem;
+    }
+
+    div.book-body-head > div.call-to-action > a > i {
+        /*  display: none; */
+    }
+
+    .book-body-head .buy-button {
+        font-size: 1.15rem;
+    }
+
+    div.book-body-head > div.call-to-action {
+        
+        display: flex;
+        text-align: center;
+    }
+
+    .book-body-head {
+        gap: 3rem;
+    }
 }

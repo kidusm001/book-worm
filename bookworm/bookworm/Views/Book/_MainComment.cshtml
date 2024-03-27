@@ -1,0 +1,44 @@
+﻿@using bookworm.ViewModel
+@model ReviewViewModel
+@{
+
+}
+
+<div class="book-content-cont">
+    <form asp-controller="Book" asp-action="AddReview" method="post">
+        <input type="hidden" asp-for="BookId" value="@ViewBag.BookId"/>
+        <input type="hidden" asp-for="Rating" id="ratingValue" />
+        <div class="form-group rating-thing-container">
+            <label for="Rating">Rating:</label>
+            <div class="rating">
+                <input type="radio" id="star-1" name="Rating-btn" value="5" onclick="updateRatingValue(this.value)" />
+                <label for="star-1" onclick="updateRatingValue('1')">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-2" name="Rating-btn" value="4" onclick="updateRatingValue(this.value)" />
+                <label for="star-2" onclick="updateRatingValue('2')">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-3" name="Rating-btn" value="3" onclick="updateRatingValue(this.value)" />
+                <label for="star-3" onclick="updateRatingValue('3')">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-4" name="Rating-btn" value="2" onclick="updateRatingValue(this.value)" />
+                <label for="star-4" onclick="updateRatingValue('4')">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+                <input type="radio" id="star-5" name="Rating-btn" value="1" onclick="updateRatingValue(this.value)" />
+                <label for="star-5" onclick="updateRatingValue('5')">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path pathLength="360" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"></path></svg>
+                </label>
+            </div>
+            <span asp-validation-for="Rating" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="Content">Review:</label>
+            <textarea asp-for="Content" class="form-control" cols="40" rows="10"></textarea>
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+        <button type="submit" class="review-btn">Submit Review</button>
+    </form>
+</div>

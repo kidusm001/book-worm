@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("bookworm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+61dfde0e46099cd569a93d40266d5c3483a06cbd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("bookworm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("bookworm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

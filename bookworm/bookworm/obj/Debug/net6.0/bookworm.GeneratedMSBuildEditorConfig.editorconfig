@@ -18,20 +18,96 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\kidus\Documents\GitHub\book-worm\bookworm\bookworm
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Account/AdminLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBZG1pbkxvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Account/AdminRegister.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBZG1pblJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Account/AuthorLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBdXRob3JMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Account/AuthorRegister.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBdXRob3JSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Account/CreateAdminUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDcmVhdGVBZG1pblVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Account/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Account/DeleteForAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxEZWxldGVGb3JBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Account/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Account/EditforAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFZGl0Zm9yQWRtaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Account/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Account/ManageUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxNYW5hZ2VVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Account/ManageUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxNYW5hZ2VVc2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Account/_SideBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxfU2lkZUJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Book/AdminPanel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xBZG1pblBhbmVsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Book/ApplySpecialOffer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xBcHBseVNwZWNpYWxPZmZlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Book/AuthorDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xBdXRob3JEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Book/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Book/CreateForAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xDcmVhdGVGb3JBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Book/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Book/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Book/DetailsforAuthor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xEZXRhaWxzZm9yQXV0aG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Book/Edit.cshtml]
@@ -40,6 +116,62 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Book/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Book/MangeBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xNYW5nZUJvb2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Book/MyWishList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xNeVdpc2hMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Book/PurchasedBooks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xQdXJjaGFzZWRCb29rcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Book/SearchResults.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xTZWFyY2hSZXN1bHRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Book/UserBooks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xVc2VyQm9va3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Book/_MainComment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xfTWFpbkNvbW1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Book/_SideBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xfU2lkZUJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Cart/MyCart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxNeUNhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Cart/_SideBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxfU2lkZUJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Category/AddCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQWRkQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Category/DeleteCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRGVsZXRlQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Category/EditCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRWRpdENhdGVnb3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Category/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Category/_SideBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcX1NpZGVCYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Home/Index.cshtml]
@@ -66,8 +198,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Role/_SideBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxfU2lkZUJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Shared/_footer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9mb290ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Shared/_navbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9uYXZiYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kidus/Documents/GitHub/book-worm/bookworm/bookworm/Views/Shared/_ValidationScriptsPartial.cshtml]

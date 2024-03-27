@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model ApplicationUser
+<nav class="navbar">
+    <div class="container">
+        <div class="search-bar">
+            <form asp-controller="Book" asp-action="Search" method="get">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button>
+                <input type="text" placeholder="Search book name, author..." name="searchTerm" aria-label="Search Books" aria-describedby="button-search" />
+            </form>
+        </div>
+        <div class="sign-in user-info-container">
+            <div class="pp-img-container">
+                <img src="@Model.ProfilePicturePath" alt="" />
+            </div>
+            <a href="#"><span>@Model.FullName</span></a>
+            
+            <form asp-controller="Account" asp-action="Logout"><button style="background-color:transparent; border:none; cursor:pointer;" type="submit"><i class="fa-solid fa-right-from-bracket"></i></button></form>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,27 @@
+@media (max-width: 1180px) {
+  .right-container {
+    width: 50%;
+  }
+  .left-container {
+    width: 50%;
+  }
+  .right-container .illustration img {
+    height: 40rem;
+  }
+  .login-container form {
+    width: auto;
+  }
+}
+@media (max-width: 1023px) {
+  .right-container .illustration img {
+    height: 35rem;
+  }
+}
+@media (max-width: 800px) {
+  .left-container {
+    width: 100%;
+  }
+  .right-container {
+    display: none;
+  }
+}

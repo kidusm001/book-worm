@@ -20,6 +20,24 @@ namespace bookworm.Controllers
         {
             return View(roleManager.Roles);
         }
+        
+        public IActionResult Dashboard()
+        {
+
+            if (User.IsInRole("admin"))
+            {
+                return RedirectToAction("AdminPanel", "Book");
+            }
+            else if (User.IsInRole("author"))
+            {
+                return RedirectToAction("AuthorDashboard", "Book");
+            }
+            else
+            {
+                // Handle other roles or redirect to a default page
+                return RedirectToAction("Index", "Book");
+            }
+        }
         public IActionResult Create()
         {
             var model= new CreateRoleViewModel();
@@ -165,6 +183,72 @@ namespace bookworm.Controllers
             }
         }
 
+        [HttpGet]
+        public async Task<IActionResult> AddOrChangeUserRole(string userId)
+        {
+            // Find the user by ID
+            var user = await userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
+
+            // Get the roles available
+            var roles = roleManager.Roles.ToList();
+
+            // Get the current role of the user if any
+            var userRole = await userManager.GetRolesAsync(user);
+            var currentRole = userRole.FirstOrDefault();
+
+            // Create a view model to pass user and role data to the view
+            var viewModel = new AddOrChangeUserRoleViewModel
+            {
+                UserId = userId,
+                UserName = user.UserName,
+                CurrentRole = currentRole,
+                Roles = roles
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddOrChangeUserRole(AddOrChangeUserRoleViewModel viewModel)
+        {
+            // Find the user by ID
+            var user = await userManager.FindByIdAsync(viewModel.UserId);
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
+
+            // Check if the selected role is valid
+            var role = await roleManager.FindByIdAsync(viewModel.SelectedRoleId);
+            if (role == null)
+            {
+                return BadRequest("Invalid role");
+            }
+
+            // Add or update the user's role
+            var currentRole = await userManager.GetRolesAsync(user);
+            if (currentRole.Any())
+            {
+                // User already has a role, remove it first
+                await userManager.RemoveFromRoleAsync(user, currentRole.First());
+            }
+
+            // Add the user to the selected role
+            var result = await userManager.AddToRoleAsync(user, role.Name);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index", "User"); // Redirect to a user profile page or dashboard
+            }
+            else
+            {
+                return BadRequest("Failed to add role to user");
+            }
+        }
 
     }
 }

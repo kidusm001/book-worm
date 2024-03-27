@@ -1,0 +1,130 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using bookworm.ViewModel;
+@using bookworm.Models;
+@using BookStore.Models;
+@model List<Book>
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    Layout = null;
+    var currentUser = await UserManager.GetUserAsync(User);
+    var firstBook = Model.FirstOrDefault();
+    var firstAuthor = firstBook?.Author;
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your WishList</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <link rel="stylesheet" href="~/css/home.css" />
+    <link rel="stylesheet" href="~/css/books.css" />
+    <script src="https://kit.fontawesome.com/44489b1897.js" crossorigin="anonymous"></script>
+    <script defer src="~/js/toggle.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="~/js/slider.js"></script>
+    <script defer src="~/js/pop-up.js"></script>
+</head>
+<body>
+    <div class="bg-container">
+        <div class="bg-one"></div>
+        <div class="bg-two"></div>
+    </div>
+    <div class="wrapper">
+        @Html.Partial("_Sidebar")
+
+        <main class="main-content">
+            <!-- Navbar -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="search-bar">
+                        <form asp-action="Search" method="get">
+                            <button type="submit"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button>
+                            <input type="text" placeholder="Search book name, author..." name="searchTerm" aria-label="Search Books" aria-describedby="button-search" />
+                        </form>
+                    </div>
+                    <div class="sign-in user-info-container">
+                        <div class="pp-img-container">
+                            <img src="@currentUser.ProfilePicturePath" alt="" />
+                        </div>
+                        <a href="#">@currentUser.FullName</a>
+                        <a asp-controller="Account" asp-action="Logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+                    </div>
+                </div>
+            </nav>
+            <header>
+                <section class="hero">
+                    <div class="hero-container">
+                        <h1>All Your Purchases</h1>
+                    </div>
+                </section>
+                @if (firstAuthor != null)
+                {
+                    <div class="top-book-decription">
+                        <div class="review-card swiper-slide">
+                            <div class="review-header">
+                                <div class="user-info-container">
+                                    <div class="pp-img-container">
+                                        <img src="@firstAuthor.ProfilePicturePath" alt="" />
+                                    </div>
+                                    <p class="username-container">@firstAuthor.FullName</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="description">@firstBook.Description</p>
+                    </div>
+                }
+
+            </header>
+            <div class="content-container">
+                <div class="right-container">
+                    <div class="popular-books bought-books">
+                        <div class="header-bar">
+                            <h2>Your Purchases</h2>
+                            <div class="swiper-pagination swiper-pagination1"></div>
+                        </div>
+                        <div class="swiper mySwiper1">
+                            <div class="swiper-wrapper">
+                                @if (Model == null || !Model.Any())
+                                {
+                                    <p>Your Purchase is empty.</p>
+                                }
+                                else
+                                {
+                                    @foreach (var book in Model)
+                                    {
+                                        <div class="swiper-slide book-card" style="width: 10rem">
+                                            <a asp-action="Details" asp-route-id="@book.Id">
+                                                <div class="img-container">
+                                                    <img src="@book.CoverImagePath" alt="" />
+                                                </div>
+                                                <div class="book-info-container">
+                                                    <p class="book-title">@book.Title</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    }
+                                }
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @Html.Partial("_footer")
+
+            <!-- Dialog Element -->
+        </main>
+    </div>
+
+    <!-- Initialize Swiper -->
+</body>
+</html>

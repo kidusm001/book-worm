@@ -42,5 +42,8 @@ namespace BookStore.Models
         // Navigation property for the category of this book
         public Category Category { get; set; }
         public ICollection<Review>? Reviews { get; set; }
+
+        //need to add a new migration
+        public ICollection<PurchaseItem>? PurchaseItems { get; set; }
     }
 }

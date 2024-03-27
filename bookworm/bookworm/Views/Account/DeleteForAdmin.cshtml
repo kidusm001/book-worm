@@ -1,0 +1,77 @@
+﻿@{
+    Layout = null;
+}
+@using bookworm.ViewModel;
+@model DeleteAccountViewModel
+@using Microsoft.AspNetCore.Identity
+@using bookworm.ViewModel;
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    var currentUser = await UserManager.GetUserAsync(User);
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <link rel="stylesheet" href="~/css/home.css" />
+
+    <link rel="stylesheet" href="~/css/login.css" />
+    <link rel="stylesheet" href="~/css/account.css" />
+    <link rel="stylesheet" href="~/css/createBook.css" />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://kit.fontawesome.com/44489b1897.js" crossorigin="anonymous"></script>
+    <script defer src="js/toggle.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="~/js/slider.js"></script>
+    <script defer src="~/js/pop-up.js"></script>
+    <script defer src="~/js/login.js"></script>
+    <script defer src="~/js/createBook.js"></script>
+</head>
+
+<body>
+    <div class="bg-container">
+        <div class="bg-one"></div>
+        <div class="bg-two"></div>
+    </div>
+    <div class="wrapper">
+        @Html.Partial("_SideBar")
+
+        <main class="main-content">
+            <!-- Navbar -->
+            @Html.Partial("_navbar", currentUser)
+            <div class="content-container">
+                <div class="right-container">
+                    <div class="create-container delete-container">
+                        <h2>Delete User</h2>
+                        <form asp-action="DeleteForAdminComfirm" method="post" enctype="multipart/form-data">
+                            <input name="userId" class="form-control" value="@Model.UserId" hidden />
+                            <p style="font-size=1.5rem; padding:2rem 0;font-size: 1.5rem;">Role Name: @Model.FullName</p>
+
+                            <button style="margin-top=20px;" type="submit" class="btn btn-primary">Delete</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="left-container">
+
+                    <img src="~/images/illustration.png" alt="" class="illustration" />
+                </div>
+            </div>
+            @Html.Partial("_footer")
+
+            <!-- Dialog Element -->
+        </main>
+    </div>
+    <!-- Initialize Swiper -->
+</body>
+</html>
+
+

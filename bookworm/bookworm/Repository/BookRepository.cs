@@ -56,11 +56,72 @@ namespace bookworm.Repository
 
         public Book GetBookByIdWithReviews(int id)
         {
-            // Retrieve the book including its associated reviews
+            // Retrieve the book including its associated reviews and users who posted them
             return _context.Books
-        .Include(book => book.Reviews) // Include the reviews navigation property
-        .FirstOrDefault(book => book.Id == id);
+                .Include(b => b.Author) // Include the author navigation property
+                .Include(b => b.Category) // Include the Category navigation property
+                .Include(b => b.Reviews) // Include the reviews navigation property
+                    .ThenInclude(r => r.User) // Include the user who posted the review
+                .FirstOrDefault(b => b.Id == id);
         }
+
+        public IEnumerable<Book> GetPopularBooks()
+        {
+            var popularBooks = _context.Books
+                .Select(book => new
+                {
+                    Book = book,
+                    PurchasesCount = _context.PurchaseItems
+                        .Count(pi => pi.BookId == book.Id),
+                    ReviewsCount = book.Reviews.Count()
+                })
+                .OrderByDescending(item => item.PurchasesCount)
+                .ThenByDescending(item => item.ReviewsCount)
+                .Select(item => item.Book)
+                .Take(10)
+                .ToList();
+
+            return popularBooks;
+        }
+
+        public IEnumerable<Book> GetNewBooks()
+        {
+            var newBooks = _context.Books
+                .OrderByDescending(book => book.DatePublished)
+                .Take(10)
+                .ToList();
+
+            return newBooks;
+        }
+
+        public IEnumerable<Book> GetSpecialOfferBooks()
+        {
+            var specialOfferBooks = _context.Books
+                .Where(book => book.IsDiscounted == true)
+                .Take(10)
+                .ToList();
+
+            return specialOfferBooks;
+        }
+        public Book GetTopSellingBook()
+        {
+            var topSellingBook = _context.Books
+                .Select(book => new
+                {
+                    Book = book,
+                    PurchasesCount = _context.PurchaseItems
+                        .Count(pi => pi.BookId == book.Id),
+                    ReviewsCount = book.Reviews.Count()
+                })
+                .OrderByDescending(item => item.PurchasesCount)
+                .ThenByDescending(item => item.ReviewsCount)
+                .Select(item => item.Book)
+                .FirstOrDefault();
+
+            return topSellingBook;
+        }
+
+
 
     }
 }

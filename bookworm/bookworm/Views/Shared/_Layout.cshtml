@@ -46,7 +46,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a asp-controller="Book" asp-action="PurchasedBooks">
                             <svg fill="#000000" width="54px" height="54px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                 <title>book-blank</title>
                                 <path d="M27.75 2c-0-0.414-0.336-0.75-0.75-0.75h-19.8c-0.028-0.001-0.061-0.002-0.094-0.002-1.541 0-2.797 1.22-2.856 2.746l-0 0.005v24.389c0.113 1.331 1.221 2.367 2.572 2.367 0.063 0 0.125-0.002 0.187-0.007l-0.008 0h20c0.414 0 0.75-0.336 0.75-0.75s-0.336-0.75-0.75-0.75v0h-19.8c-0.023 0.001-0.050 0.002-0.077 0.002-0.717 0-1.306-0.547-1.373-1.247l-0-0.006v-1.223c0-0.459 0.584-0.861 1.248-0.861l20.002 0.057c0 0 0.001 0 0.001 0 0.207 0 0.394-0.084 0.529-0.22l0-0c0.017-0.017 0.025-0.041 0.040-0.060 0.047-0.051 0.087-0.11 0.118-0.173l0.002-0.004c0.016-0.049 0.029-0.105 0.034-0.164l0-0.003c0.011-0.035 0.020-0.077 0.025-0.121l0-0.003v-0.002zM26.25 24.471l-15.5-0.044v-21.677h15.5zM5.75 24.686v-20.686c0.067-0.705 0.657-1.252 1.374-1.252 0.027 0 0.054 0.001 0.080 0.002l-0.004-0h2.050v21.672l-2.25-0.006c-0.453 0.002-0.883 0.101-1.269 0.278l0.019-0.008z"></path>
@@ -55,7 +55,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a asp-controller="Book" asp-action="MyWishList">
                             <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -65,7 +65,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a asp-controller="Cart" asp-action="MyCart">
+                            <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z" stroke="#1C274C" stroke-width="1.5"></path> <path d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z" stroke="#1C274C" stroke-width="1.5"></path> <path d="M2 3L2.26121 3.09184C3.5628 3.54945 4.2136 3.77826 4.58584 4.32298C4.95808 4.86771 4.95808 5.59126 4.95808 7.03836V9.76C4.95808 12.7016 5.02132 13.6723 5.88772 14.5862C6.75412 15.5 8.14857 15.5 10.9375 15.5H12M16.2404 15.5C17.8014 15.5 18.5819 15.5 19.1336 15.0504C19.6853 14.6008 19.8429 13.8364 20.158 12.3075L20.6578 9.88275C21.0049 8.14369 21.1784 7.27417 20.7345 6.69708C20.2906 6.12 18.7738 6.12 17.0888 6.12H11.0235M4.95808 6.12H7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
+                            <span>Cart</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Account" asp-action="Index">
                             <svg fill="#000000" width="84px" height="84px" viewBox="0 -0.08 20 20" data-name="Capa 1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" stroke="#000000" stroke-width="0.0002">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -101,7 +107,7 @@
                     </div>
                     <div class="sign-in">
 
-                        <a asp-controller="Account" asp-action="Login" asp-route-returnUrl="/Book/Create">
+                        <a asp-controller="Account" asp-action="Login" asp-route-returnUrl="/Book/Index">
                             Sign In
                             <i class="fa-solid fa-arrow-right-to-bracket"></i>
                         </a>
@@ -113,47 +119,7 @@
             @RenderBody()
 
 
-            <footer class="footer">
-                <div class="row footer-content">
-                    <div class="footer-info">
-                        <div class="footer-logo">
-                            <img src="images/logo-white.png" alt="Company Logo" />
-                            <p>BookWorm</p>
-                        </div>
-                        <div class="social-icons">
-                            <a href="#" class="social-link"><i class="fab fa-facebook-f xl"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-x-twitter xl"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-instagram xl"></i></a>
-                            <!-- Add more social media icons and links as needed -->
-                        </div>
-                        <p>Address: 123 Main Street, City, Country</p>
-                    </div>
-                    <div class="footer-links">
-                        <p>Helpful Links</p>
-                        <ul>
-                            <li><a href="#section1">Home</a></li>
-                            <li><a href="#section2">Books</a></li>
-                            <li><a href="#section3">Sign in</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-links">
-                        <ul>
-                            <li>
-                                <a asp-controller="Author" asp-action="Login">Login as Author</a>
-                                <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                            </li>
-                            <!-- Add more footer links as needed -->
-                        </ul>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="copyright">
-                            <p>&copy; 2024 Company Name. All rights reserved.</p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            
 
             <!-- Button to open the dialog -->
             @* <button onclick="openDialog()">Open Dialog</button> *@

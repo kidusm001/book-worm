@@ -1,0 +1,70 @@
+.right-container {
+  width: 60%;
+}
+.cart-items-container {
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.book-card .book-card-content {
+  flex-direction: row;
+  gap: 4rem;
+}
+
+.book-card .book-card-content .book-info-container p {
+  font-size: 1.5rem;
+}
+.content-container {
+  min-height: 50vh;
+}
+
+.book-card .book-card-content .remove-btn {
+  width: 3rem;
+  height: 3rem;
+  padding: 1rem;
+  font-size: 1.67rem;
+  border-radius: 50%;
+  background-color: var(--darker-element-bg);
+  color: var(--primary-text-color);
+  /* text-align: center; */
+  position: relative;
+}
+.book-card .book-card-content .remove-btn i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.checkout-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 4rem;
+  border: 2px solid var(--dark-prime-color);
+}
+.checkout-container .checkout-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.subtotal-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.checkout-body button,
+.checkout-body input[type='text'] {
+  font-family: 'Montserrat';
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+.checkout-body .checkout-btn {
+  background-color: var(--btn-color);
+  color: var(--secondary-color);
+  border-radius: 5px;
+  cursor: pointer;
+}

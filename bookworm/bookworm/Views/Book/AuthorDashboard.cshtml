@@ -1,0 +1,106 @@
+﻿@{
+    Layout = null;
+}
+@using Microsoft.AspNetCore.Identity
+@using bookworm.ViewModel;
+@using bookworm.Models;
+@using BookStore.Models;
+
+@model List<Book>
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    var currentUser = await UserManager.GetUserAsync(User);
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <link rel="stylesheet" href="~/css/home.css" />
+
+    <link rel="stylesheet" href="~/css/login.css" />
+    <link rel="stylesheet" href="~/css/account.css" />
+    <link rel="stylesheet" href="~/css/createBook.css" />
+    <link rel="stylesheet" href="~/css/indexRoles.css" />
+    <link rel="stylesheet" href="~/css/search.css" />
+    <link rel="stylesheet" href="~/css/rating.css" />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://kit.fontawesome.com/44489b1897.js" crossorigin="anonymous"></script>
+    <script defer src="~/js/toggle.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="~/js/slider.js"></script>
+    <script defer src="~/js/pop-up.js"></script>
+    <script defer src="~/js/login.js"></script>
+    <script defer src="~/js/createBook.js"></script>
+    <script defer src="~/js/search.js"></script>
+</head>
+<style></style>
+<body>
+    <div class="bg-container">
+        <div class="bg-one"></div>
+        <div class="bg-two"></div>
+    </div>
+    <div class="wrapper">
+        @Html.Partial("_SideBar")
+
+        <main class="main-content">
+            <!-- Navbar -->
+            @Html.Partial("_navbar", currentUser);
+            <div class="create-role-container">
+                <h2>Want to add a Book?</h2>
+
+                <a asp-action="Create" class="btn btn-primary">
+                    <span> Yes </span>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+            <div class="filter-container">
+                <div class="head">
+                    <h2>Your Books</h2>
+                </div>
+                <div class="body">
+
+                    <div class="book-list">
+                        @if (Model != null)
+                        {
+                            @foreach (var book in Model)
+                            {
+                                <div class="swiper-slide book-card" style="width: 10rem">
+                                    <a asp-action="DetailsforAuthor" asp-route-id="@book.Id">
+                                        <div class="img-container">
+                                            <img src="@book.CoverImagePath" alt="" />
+                                        </div>
+                                        <div class="book-info-container">
+                                            <p class="book-title">@book.Title</p>
+
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div><p>No Books with the value of the search</p></div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+            @Html.Partial("_footer");
+
+            <!-- Dialog Element -->
+        </main>
+    </div>
+    <!-- Initialize Swiper -->
+</body>
+</html>
+

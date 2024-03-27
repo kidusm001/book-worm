@@ -1,0 +1,127 @@
+﻿@{
+    Layout = null;
+}
+@using Microsoft.AspNetCore.Identity
+
+@using Microsoft.AspNetCore.Identity
+@using bookworm.ViewModel;
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    var currentUser = await UserManager.GetUserAsync(User);
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <link rel="stylesheet" href="~/css/home.css" />
+
+    <link rel="stylesheet" href="~/css/login.css" />
+    <link rel="stylesheet" href="~/css/account.css" />
+    <link rel="stylesheet" href="~/css/createBook.css" />
+    <link rel="stylesheet" href="~/css/indexRoles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://kit.fontawesome.com/44489b1897.js" crossorigin="anonymous"></script>
+    <script defer src="~/js/toggle.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="~/js/slider.js"></script>
+    <script defer src="~/js/pop-up.js"></script>
+    <script defer src="~/js/login.js"></script>
+    <script defer src="~/js/createBook.js"></script>
+</head>
+<style></style>
+<body>
+    <div class="bg-container">
+        <div class="bg-one"></div>
+        <div class="bg-two"></div>
+    </div>
+    <div class="wrapper">
+        @Html.Partial("_SideBar")
+
+        <main class="main-content">
+            <!-- Navbar -->
+            @Html.Partial("_navbar", currentUser)
+            <div class="content-container">
+                <div class="right-container">
+                    <div class="create-role-container">
+                        <h2>Want to Manage Books?</h2>
+
+                        <a asp-controller="Book" asp-action="MangeBook" class="btn btn-primary">
+                            <span> Yes </span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                    <div class="create-role-container">
+                        <h2>Want to Manage Users?</h2>
+
+                        <a asp-controller="Account" asp-action="ManageUsers" class="btn btn-primary">
+                            <span> Yes </span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                    <div class="create-role-container">
+                        <h2>Want to Manage Roles?</h2>
+
+                        <a asp-controller="Role" asp-action="Index" class="btn btn-primary">
+                            <span> Yes </span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="create-role-container">
+                        <h2>Want to Manage Categories?</h2>
+
+                        <a asp-controller="Category" asp-action="Index" class="btn btn-primary">
+                            <span> Yes </span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                   
+                </div>
+                <div class="left-container">
+                    <img src="~/images/illustration.png" alt="" class="illustration" />
+                    <div class="how-to-container">
+                        <div class="how-to-content">
+                            <h2>How to Upload your Book</h2>
+                            <ol class="steps">
+                                <li>
+                                    <p>1. Sign up / Log in</p>
+                                    <i class="fa-regular fa-user"></i>
+                                </li>
+                                <li>
+                                    <p>2. Add the Book details</p>
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </li>
+                                <li>
+                                    <p>3. Upload the Cover image</p>
+                                    <i class="fa-regular fa-image"></i>
+                                </li>
+                                <li>
+                                    <p>4. Upload the Book file</p>
+                                    <i class="fa-solid fa-book"></i>
+                                </li>
+                                <li>
+                                    <p>5. Hit the Upload Button</p>
+                                    <i class="fa-solid fa-upload"></i>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @Html.Partial("_footer")
+
+            <!-- Dialog Element -->
+        </main>
+    </div>
+    <!-- Initialize Swiper -->
+</body>
+</html>

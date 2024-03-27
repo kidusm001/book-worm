@@ -521,7 +521,7 @@ namespace bookworm.Migrations
             modelBuilder.Entity("bookworm.Models.PurchaseItem", b =>
                 {
                     b.HasOne("BookStore.Models.Book", "Book")
-                        .WithMany()
+                        .WithMany("PurchaseItems")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -636,6 +636,8 @@ namespace bookworm.Migrations
 
             modelBuilder.Entity("BookStore.Models.Book", b =>
                 {
+                    b.Navigation("PurchaseItems");
+
                     b.Navigation("Reviews");
                 });
 

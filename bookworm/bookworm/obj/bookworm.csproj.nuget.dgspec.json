@@ -40,6 +40,18 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "FuzzySharp": {
+              "target": "Package",
+              "version": "[2.0.2, )"
+            },
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.59, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.Google": {
               "target": "Package",
               "version": "[6.0.26, )"
@@ -67,6 +79,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.26, )"
+            },
+            "Stripe.net": {
+              "target": "Package",
+              "version": "[43.15.0, )"
+            },
+            "VersOne.Epub": {
+              "target": "Package",
+              "version": "[3.3.1, )"
             }
           },
           "imports": [

@@ -1,0 +1,70 @@
+﻿@{
+    Layout = null;
+}
+@using bookworm.ViewModel;
+@model LogInViewModel
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <link rel="stylesheet" href="~/css/login.css" />
+    <link rel="stylesheet" href="~/css/login-resposive.css" />
+    <script src="https://kit.fontawesome.com/44489b1897.js" crossorigin="anonymous"></script>
+    <script defer src="~/js/login.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+    <script defer src="~/js/login-validation.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="right-container">
+            <div class="illustration">
+                <img src="~/images/loginIllustration.png" alt="" />
+            </div>
+        </div>
+        <div class="left-container">
+            <div class="login-container">
+                <img src="~/images/logo-black.png" alt="Logo" />
+                <h1>Welcome back!</h1>
+                <p>Please enter your details</p>
+                @if (TempData["Error"] != null)
+                {
+                    <div class="col-md-12 alert">
+                        <span><b>Sorry!</b> - @TempData["Error"]</span>
+                    </div>
+                }
+
+                <form asp-action="AuthorLogin">
+                    <input asp-for="ReturnUrl" type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                    <div class="form-control">
+                        <input asp-for="Email" class="login-detail" />
+                        <label asp-for="Email" class=""></label>
+                        <span asp-validation-for="Email" class="validation-message"></span>
+                    </div>
+                    <div class="form-control">
+                        <input asp-for="Password" class="login-detail" id="password" />
+                        <label asp-for="Password">Password</label>
+                        <span asp-validation-for="Password" class="validation-message"></span>
+                    </div>
+
+                    <div class="Remember-me-container">
+                        <input asp-for="RememberMe" type="checkbox" name="Remeber-me" id="" />
+                        <label asp-for="RememberMe">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn">Log in</button>
+
+                    <p class="text">Don't have an account? <a asp-controller="Account" asp-action="AuthorRegister">Register</a></p>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

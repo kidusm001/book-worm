@@ -1,0 +1,19 @@
+.popular-books.bought-books {
+  width: 95vw;
+  height: 55vh;
+}
+
+.popular-books.bought-books .header-bar {
+  /*   margin-right: 10rem;
+ */
+}
+
+.book-card a img,
+.book-card .book-card-content img {
+  height: 20rem;
+}
+
+.book-card a .book-info-container p,
+.book-card .book-card-content .book-info-container p {
+  font-size: 1.2rem;
+}

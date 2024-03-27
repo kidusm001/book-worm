@@ -84,3 +84,30 @@ body > div.wrapper > main > div > div.right-container > div.delete-container > f
     font-size: 1.5rem;
 
 }
+@media (max-width: 1023px) {
+    .left-container {
+        display: none;
+    }
+
+    .right-container {
+        width: 100%;
+    }
+
+    .bg-container .bg-one {
+        width: 100vw;
+    }
+
+    .bg-container .bg-two {
+        display: none;
+    }
+}
+
+@media (max-width: 492px) {
+    .form-control .login-detail {
+        width: auto;
+    }
+
+    .img-view {
+        font-size: 1.3rem;
+    }
+}

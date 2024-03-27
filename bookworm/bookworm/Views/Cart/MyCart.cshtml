@@ -1,0 +1,173 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using Microsoft.AspNetCore.Identity
+@using bookworm.ViewModel;
+@model Cart
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    var currentUser = await UserManager.GetUserAsync(User);
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <link rel="stylesheet" href="~/css/home.css" />
+    <link rel="stylesheet" href="~/css/cart.css" />
+    <script src="https://kit.fontawesome.com/44489b1897.js" crossorigin="anonymous"></script>
+    <script defer src="~/js/toggle.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="~/js/slider.js"></script>
+    <script defer src="~/js/pop-up.js"></script>
+</head>
+<body>
+    <div class="bg-container">
+        <div class="bg-one"></div>
+        <div class="bg-two"></div>
+    </div>
+    <div class="wrapper">
+        @Html.Partial("_SideBar")
+
+        <main class="main-content">
+            <!-- Navbar -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="search-bar">
+                        <form asp-controller="Book" asp-action="Search" method="get">
+                            <button type="submit"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button>
+                            <input type="text" placeholder="Search book name, author..." name="searchTerm" aria-label="Search Books" aria-describedby="button-search" />
+                        </form>
+                    </div>
+                    <div class="sign-in user-info-container">
+                        <div class="pp-img-container">
+                            <img src="@currentUser.ProfilePicturePath" alt="" />
+                        </div>
+                        <a href="#">@currentUser.FullName</a>
+                        <a href="#"><i class="fa-regular fa-bell"></i></a>
+                    </div>
+                </div>
+            </nav>
+            <div class="content-container">
+                <div class="right-container">
+                    <div class="cart-items-container">
+                        <div class="cart-head">
+                            <h2>Your Cart</h2>
+                        </div>
+                        <div class="cart-body">
+                            @if (Model == null || !Model.Items.Any())
+                            {
+                                <p>Your cart is empty.</p>
+                            }
+                            else
+                            {
+                                @foreach (var item in Model.Items)
+                                {
+                                    <div class="swiper-slide book-card">
+                                        <div class="book-card-content">
+                                            <div class="img-container">
+                                                <img src="@item.Book.CoverImagePath" alt="" />
+                                            </div>
+                                            <div class="book-info-container">
+                                                <p class="book-title">@item.Book.Title</p>
+
+                                                <p class="book-price">$@item.Book.Price</p>
+                                            </div>
+                                            <form asp-controller="Cart" asp-action="RemoveFromCart" method="post">
+                                                <input type="hidden" name="itemId" value="@item.Id" />
+                                                <button type="submit" class="remove-btn"><i class="fa-solid fa-xmark"></i></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="left-container">
+                    <div class="checkout-container">
+                        <div class="checkout-head">
+                            <h2>Order Summary</h2>
+                        </div>
+                        <div class="checkout-body">
+                            <div class="subtotal-container">
+                                <p class="subtotal-text">Total:</p>
+                                <p class="subtotal-amount">$@Model.Items.Sum(item => item.Book.Price)</p>
+                            </div>
+
+                            <form asp-controller="Cart" asp-action="CreateCheckoutSession" method="post">
+                                <input type="hidden" name="amount" value="@Model.Items.Sum(item => item.Book.Price)" />
+                                @if (Model == null || !Model.Items.Any())
+                                {
+                                    <button type="submit" class="checkout-btn" disabled>Proceed to Checkout</button>
+                                }
+                                else
+                                {
+                                    <button type="submit" class="checkout-btn">Proceed to Checkout</button>
+                                }
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="row footer-content">
+                    <div class="footer-info">
+                        <div class="footer-logo">
+                            <img src="images/logo-white.png" alt="Company Logo" />
+                            <p>BookWorm</p>
+                        </div>
+                        <div class="social-icons">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f xl"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-x-twitter xl"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram xl"></i></a>
+                            <!-- Add more social media icons and links as needed -->
+                        </div>
+                        <p>Address: 123 Main Street, City, Country</p>
+                    </div>
+                    <div class="footer-links">
+                        <p>Helpful Links</p>
+                        <ul>
+                            <li><a href="#section1">Home</a></li>
+                            <li><a href="#section2">Books</a></li>
+                            <li><a href="#section3">Sign in</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <ul>
+                            <li>
+                                <a href="#">Login as Author</a>
+                                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                            </li>
+                            <!-- Add more footer links as needed -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copyright">
+                            <p>&copy; 2024 Company Name. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- Dialog Element -->
+        </main>
+    </div>
+
+    <!-- Initialize Swiper -->
+</body>
+</html>

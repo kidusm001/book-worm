@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<footer class="footer">
+    <div class="row footer-content">
+        <div class="footer-info">
+            <div class="footer-logo">
+                <img src="~/images/logo-white.png" alt="Company Logo" />
+                <p>BookWorm</p>
+            </div>
+            <div class="social-icons">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f xl"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-x-twitter xl"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram xl"></i></a>
+                <!-- Add more social media icons and links as needed -->
+            </div>
+            <p>Address: 123 Main Street, City, Country</p>
+        </div>
+        <div class="footer-links">
+            <p>Helpful Links</p>
+            <ul>
+                <li><a asp-controller="Book" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Book" asp-action="Search">Books</a></li>
+                <li><a asp-controller="Account" asp-action="Login">Sign in</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <ul>
+                <li>
+                    <a asp-controller="Account" asp-action="AuthorLogin">Login as Author</a>
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                </li>
+                <!-- Add more footer links as needed -->
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="copyright">
+                <p>&copy; 2024 BookWorm. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>

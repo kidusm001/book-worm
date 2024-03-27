@@ -1,0 +1,95 @@
+﻿@{
+    Layout = null;
+}
+@using Microsoft.AspNetCore.Identity
+@using bookworm.ViewModel;
+@using bookworm.Models;
+@using bookworm.ViewModel;
+@model CreateCategoryViewModel
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    var currentUser = await UserManager.GetUserAsync(User);
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <link rel="stylesheet" href="~/css/home.css" />
+
+    <link rel="stylesheet" href="~/css/login.css" />
+    <link rel="stylesheet" href="~/css/account.css" />
+    <link rel="stylesheet" href="~/css/createBook.css" />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://kit.fontawesome.com/44489b1897.js" crossorigin="anonymous"></script>
+    <script defer src="js/toggle.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="~/js/slider.js"></script>
+    <script defer src="~/js/pop-up.js"></script>
+    <script defer src="~/js/login.js"></script>
+    <script defer src="~/js/createBook.js"></script>
+</head>
+<style></style>
+<body>
+    <div class="bg-container">
+        <div class="bg-one"></div>
+        <div class="bg-two"></div>
+    </div>
+    <div class="wrapper">
+        @Html.Partial("_SideBar")
+
+        <main class="main-content">
+            <!-- Navbar -->
+            @Html.Partial("_navbar", currentUser);
+            <div class="content-container">
+                <div class="right-container">
+                    <div class="create-container">
+                        <h2>Create Category</h2>
+                        <form asp-action="AddCategory" method="post" enctype="multipart/form-data">
+
+                            <div class="form-control">
+                                <input asp-for="name" class="login-detail" />
+                                <label asp-for="name"></label>
+                                <span asp-validation-for="name" class="text-danger"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="left-container">
+                    <div class="how-to-container">
+                        <div class="how-to-content">
+                            <h2>Current Categories</h2>
+                            <ol class="steps">
+                                @foreach (var role in Model.categories)
+                                {
+                                    <li>
+                                        <p>@role.Name</p>
+
+                                    </li>
+                                }
+
+
+                            </ol>
+                        </div>
+                    </div>
+                    <img src="~/images/illustration.png" alt="" class="illustration" />
+                </div>
+            </div>
+@Html.Partial("_footer");
+
+            <!-- Dialog Element -->
+        </main>
+    </div>
+    <!-- Initialize Swiper -->
+</body>
+</html>

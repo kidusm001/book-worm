@@ -1,0 +1,214 @@
+﻿@{
+    Layout = null;
+}
+@using Microsoft.AspNetCore.Identity
+@using bookworm.ViewModel;
+@model BookDetailsViewModel
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    var currentUser = await UserManager.GetUserAsync(User);
+    var bookId = Model.BookId;
+    var HasPurchased = ViewBag.HasPurchased;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <link rel="stylesheet" href="~/css/home.css" />
+    <link rel="stylesheet" href="~/css/book-page.css" />
+    <link rel="stylesheet" href="~/css/rating.css" />
+    <script src="https://kit.fontawesome.com/44489b1897.js" crossorigin="anonymous"></script>
+    <script defer src="~/js/toggle.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script defer src="~/js/slider.js"></script>
+    <script defer src="~/js/pop-up.js"></script>
+</head>
+<body>
+    <div class="bg-container">
+        <div class="bg-one"></div>
+        <div class="bg-two"></div>
+    </div>
+    <div class="wrapper">
+        @Html.Partial("_Sidebar")
+
+        <main class="main-content">
+            <!-- Navbar -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="search-bar">
+                        <form asp-action="Search" method="get">
+                            <button type="submit"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button>
+                            <input type="text" placeholder="Search book name, author..." name="searchTerm" aria-label="Search Books" aria-describedby="button-search" />
+                        </form>
+                    </div>
+                    <div class="sign-in user-info-container">
+                        <div class="pp-img-container">
+                            <img  src="@currentUser.ProfilePicturePath" alt="" />
+                        </div>
+                        <a href="#">@currentUser.FullName</a>
+
+                        <a asp-controller="Account" asp-action="Logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+                    </div>
+                </div>
+            </nav>
+            <div class="book-info-container">
+                <div class="head top-head">
+                    <div class="book-img">
+                        <img style="height:270px;" src="@Model.Book.CoverImagePath" alt="" />
+                    </div>
+                    <div class="book-head-info">
+                        <h1 class="title">@Model.Book.Title</h1>
+                        <p class="author-name">@Model.Book.Author.FullName</p>
+                        <p class="price">@Model.Book.Price</p>
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="book-body-head">
+                        <div class="call-to-action">
+                            <a asp-action="Edit" asp-route-id="@Model.BookId" class="btn btn-primary buy-button">
+                                <span> Edit </span>
+                                <i class="fa-solid fa-eraser"></i>
+                            </a>
+
+                        </div>
+                        <div class="call-to-action">
+                            <a asp-action="Delete" asp-route-id="@Model.BookId" class="btn btn-primary buy-button">
+                                <span> Delete </span>
+                                <i class="fa-solid fa-eraser"></i>
+                            </a>
+
+                        </div>
+                        <div class="call-to-action">
+                            <a asp-action="ApplySpecialOffer" asp-route-id="@Model.BookId" class="btn btn-primary buy-button">
+                                <span> Discount </span>
+                                <i class="fa-solid fa-tag"></i>
+                            </a>
+
+                        </div>
+                        <div class="call-to-action">
+                           
+                            
+                            <form  asp-action="RemoveSpecialOffer" method="post">
+                                    <input type="hidden" name="id" value="@Model.BookId" />
+                                <input type="hidden" name="id" value="@Model.Book.DiscountAmount" />
+                                    <button type="submit" class="btn btn-primary buy-button">
+                                        <span>Remove Discount </span>
+                                        
+                                    </button>
+                                </form>
+                            
+                            
+
+                        </div>
+
+                    </div>
+                    <div class="book-body-container">
+                        <div class="book-body-content">
+                            <div class="body-description-cont">
+                                <div class="head">
+                                    <p>Description</p>
+                                </div>
+                                <div class="book-content-cont">
+                                    @Model.Book.Description
+                                </div>
+                            </div>
+                            <div class="body-author-cont">
+                                <div class="head">
+                                    <p>Author</p>
+                                </div>
+                                <div class="book-content-cont">@Model.Book.Author.FullName</div>
+                            </div>
+                        </div>
+                        <div class="book-body-content">
+                            <div class="body-description-cont">
+                                <div class="head">
+                                    <p>Category</p>
+                                </div>
+                                <div class="book-content-cont">
+                                    @Model.Book.Category.Name
+                                </div>
+                            </div>
+                            <div class="body-author-cont">
+                                <div class="head">
+                                    <p>Language</p>
+                                </div>
+                                <div class="book-content-cont">@Model.Book.Language</div>
+                            </div>
+                            <div class="body-author-cont">
+                                <div class="head">
+                                    <p>Date Published</p>
+                                </div>
+                                <div class="book-content-cont">@Model.Book.DatePublished.ToString("MMMM dd, yyyy")</div>
+                            </div>
+                        </div>
+                        <div class="book-body-content">
+                            <div class="body-description-cont">
+                                <div class="head">
+                                    <p>Your Review</p>
+                                </div>
+                                @{
+                                    var reviewVM = new ReviewViewModel();
+                                }
+                                @await Html.PartialAsync("_MainComment", reviewVM)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rating-container">
+                        <h2>Reader Reviews</h2>
+                        <div class="mySwiper4">
+                            <div class="rating-content swiper-wrapper">
+                                @foreach (var review in Model.Reviews)
+                                {
+                                    <div class="review-card swiper-slide">
+                                        <div class="review-header">
+                                            <div class="user-info-container">
+                                                <div class="pp-img-container">
+                                                    <img src="@review.User.ProfilePicturePath" alt="" />
+                                                </div>
+                                                <p class="username-container">@review.User.FullName</p>
+                                            </div>
+                                            <div class="rating-num-container">
+                                                <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                    <g id="SVGRepo_iconCarrier">
+                                                        <path d="M11.2691 4.41115C11.5006 3.89177 11.6164 3.63208 11.7776 3.55211C11.9176 3.48263 12.082 3.48263 12.222 3.55211C12.3832 3.63208 12.499 3.89177 12.7305 4.41115L14.5745 8.54808C14.643 8.70162 14.6772 8.77839 14.7302 8.83718C14.777 8.8892 14.8343 8.93081 14.8982 8.95929C14.9705 8.99149 15.0541 9.00031 15.2213 9.01795L19.7256 9.49336C20.2911 9.55304 20.5738 9.58288 20.6997 9.71147C20.809 9.82316 20.8598 9.97956 20.837 10.1342C20.8108 10.3122 20.5996 10.5025 20.1772 10.8832L16.8125 13.9154C16.6877 14.0279 16.6252 14.0842 16.5857 14.1527C16.5507 14.2134 16.5288 14.2807 16.5215 14.3503C16.5132 14.429 16.5306 14.5112 16.5655 14.6757L17.5053 19.1064C17.6233 19.6627 17.6823 19.9408 17.5989 20.1002C17.5264 20.2388 17.3934 20.3354 17.2393 20.3615C17.0619 20.3915 16.8156 20.2495 16.323 19.9654L12.3995 17.7024C12.2539 17.6184 12.1811 17.5765 12.1037 17.56C12.0352 17.5455 11.9644 17.5455 11.8959 17.56C11.8185 17.5765 11.7457 17.6184 11.6001 17.7024L7.67662 19.9654C7.18404 20.2495 6.93775 20.3915 6.76034 20.3615C6.60623 20.3354 6.47319 20.2388 6.40075 20.1002C6.31736 19.9408 6.37635 19.6627 6.49434 19.1064L7.4341 14.6757C7.46898 14.5112 7.48642 14.429 7.47814 14.3503C7.47081 14.2807 7.44894 14.2134 7.41394 14.1527C7.37439 14.0842 7.31195 14.0279 7.18708 13.9154L3.82246 10.8832C3.40005 10.5025 3.18884 10.3122 3.16258 10.1342C3.13978 9.97956 3.19059 9.82316 3.29993 9.71147C3.42581 9.58288 3.70856 9.55304 4.27406 9.49336L8.77835 9.01795C8.94553 9.00031 9.02911 8.99149 9.10139 8.95929C9.16534 8.93081 9.2226 8.8892 9.26946 8.83718C9.32241 8.77839 9.35663 8.70162 9.42508 8.54808L11.2691 4.41115Z"
+                                                              stroke="#000000"
+                                                              stroke-width="2"
+                                                              stroke-linecap="round"
+                                                              stroke-linejoin="round"></path>
+                                                    </g>
+                                                </svg>
+                                                <p class="rating-num">@review.Rating</p>
+                                            </div>
+                                        </div>
+                                        <div class="review-content">@review.Content</div>
+                                    </div>
+                                }
+
+
+                            </div>
+                            <div class="swiper-pagination pagination-vertical"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @Html.Partial("_footer")
+
+            <!-- Dialog Element -->
+        </main>
+    </div>
+    <script>
+        function updateRatingValue(value) {
+            document.getElementById('ratingValue').value = value;
+        }
+    </script>
+    <!-- Initialize Swiper -->
+</body>
+</html>

@@ -12,5 +12,9 @@ namespace bookworm.Interfaces
         Task<bool> UpdateBookAsync(Book book);
         void DeleteBook(Book book);
         Book GetBookByIdWithReviews(int id);
+        IEnumerable<Book> GetPopularBooks();
+        IEnumerable<Book> GetNewBooks();
+        IEnumerable<Book> GetSpecialOfferBooks();
+        Book GetTopSellingBook();
     }
 }

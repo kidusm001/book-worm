@@ -39,3 +39,20 @@
   color: var(--primary-text-color);
   font-weight: 500;
 }
+@media (max-width: 1023px) {
+    div.sign-in.user-info-container > a:nth-child(2) {
+        display: none;
+    }
+}
+
+@media (max-width: 492px) {
+    .search-bar input[type='text'] {
+        width: 9rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .navbar .container {
+        gap: 0;
+    }
+}

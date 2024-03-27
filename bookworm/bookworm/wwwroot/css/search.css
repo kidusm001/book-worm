@@ -74,3 +74,26 @@
   flex-wrap: wrap;
   gap: 2rem;
 }
+
+.range-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+    .range-container p,
+    .p-range p {
+        margin: 0;
+    }
+
+.p-range {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.range-container input {
+    width: 4rem;
+}
