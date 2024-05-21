@@ -98,15 +98,16 @@
   width: 100%;
 }
 .form-control input {
-  background-color: transparent;
-  border: 0;
-  border-bottom: 2px var(--primary-text-color) solid;
-  display: block;
-  width: 100%;
-  padding: 15px 0;
-  font-size: 18px;
-  color: var(--primary-text-color);
-  z-index: 999;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px var(--primary-text-color) solid;
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 18px;
+    color: var(--primary-text-color);
+    z-index: 999;
+    font-family: 'Montserrat';
 }
 
 .form-control input:focus {

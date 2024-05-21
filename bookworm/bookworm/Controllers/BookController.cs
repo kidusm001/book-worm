@@ -34,7 +34,7 @@ namespace bookworm.Controllers
         }
 
         // GET: BookController
-        public async Task <IActionResult> Index()
+        public async Task<IActionResult> Index()
         {
             var currentUser = await _userManager.GetUserAsync(User);
 
@@ -86,7 +86,7 @@ namespace bookworm.Controllers
         }
         public IActionResult AdminPanel()
         {
-            
+
             return View();
         }
 
@@ -122,19 +122,20 @@ namespace bookworm.Controllers
                 }
 
                 // Set the AuthorId property to the current user's ID
-                var model = new CreateBookViewModel { 
+                var model = new CreateBookViewModel
+                {
                     AuthorId = user.Id,
                     Categories = categories
                 };
 
-                
+
 
                 return View(model);
             }
             catch (Exception ex)
             {
                 // Log the exception
-               
+
 
                 // Redirect to an error page or return an appropriate error message
                 return RedirectToAction("Error", "Home");
@@ -315,8 +316,8 @@ namespace bookworm.Controllers
                 Language = book.Language,
                 DatePublished = book.DatePublished,
                 Price = book.Price,
-                AuthorName = book.Author?.FullName, // Assuming you have a FullName property in the ApplicationUser model
-                CategoryName = book.Category?.Name // Assuming you have a Name property in the Category model
+                AuthorName = book.Author?.FullName,
+                CategoryName = book.Category?.Name
             };
 
             return View(viewModel);
@@ -360,11 +361,11 @@ namespace bookworm.Controllers
                 // Handle the case where the current user is not found
                 return RedirectToAction("Login", "Account");
             }
-            
+
             var book = _bookRepository.GetBookByIdWithReviews(id);
             var reviews = _reviewRepository.GetReviewsForBook(id);
             var isInWishlist = false;
-            isInWishlist = _context.WishLists.Any(w => w.UserId == currentUser.Id && w.BookId == book.Id) ;
+            isInWishlist = _context.WishLists.Any(w => w.UserId == currentUser.Id && w.BookId == book.Id);
             if (book == null)
             {
                 return NotFound();
@@ -374,8 +375,8 @@ namespace bookworm.Controllers
             {
                 Book = book,
                 Reviews = reviews,
-                BookId=book.Id,
-                IsInWishList=isInWishlist
+                BookId = book.Id,
+                IsInWishList = isInWishlist
             };
             // Check if the user has purchased the book
             var hasPurchased = await _context.PurchaseItems
@@ -694,18 +695,19 @@ namespace bookworm.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> Search(string searchTerm)
         {
             var categories = _bookRepository.GetAllCategories();
             if (string.IsNullOrWhiteSpace(searchTerm))
             {
                 // If the search term is empty or null, return a view with no results
-                return View("SearchResults", new SearchViewModel { Categories=categories});
+                return View("SearchResults", new SearchViewModel { Categories = categories });
             }
 
             // Fetch all books and authors from the database
             var books = await _context.Books.Include(b => b.Author).ToListAsync();
-            
+
 
             // Perform the fuzzy search in-memory using LINQ to Objects
             var searchResults = books.Where(b =>
@@ -714,7 +716,7 @@ namespace bookworm.Controllers
             ).ToList();
             var model = new SearchViewModel
             {
-                SearchTerm=searchTerm,
+                SearchTerm = searchTerm,
                 books = searchResults,
                 Categories = categories
             };
@@ -804,7 +806,7 @@ namespace bookworm.Controllers
 
             // Execute the query
             var searchResults = await query.ToListAsync();
-            model.SearchTerm= model.SearchTerm ?? string.Empty;
+            model.SearchTerm = model.SearchTerm ?? string.Empty;
             var categories = _bookRepository.GetAllCategories(); // Fetch all categories
             model.Categories = categories;
             model.books = searchResults;
@@ -915,7 +917,8 @@ namespace bookworm.Controllers
             // Pass the list of user's books to the view
             return View(userBooks);
         }
-
+        //This Action method will enable users to open the books that that they purchased on the browser.
+        //We will try and make an browser based epub reader
         public async Task<IActionResult> Read(int id)
         {
             var book = await _context.Books.FindAsync(id);
@@ -928,7 +931,7 @@ namespace bookworm.Controllers
             return View(book);
         }
 
-
+        [Authorize]
         public async Task<IActionResult> DownloadBook(int id)
         {
             var book = await _context.Books.FindAsync(id);
@@ -939,7 +942,7 @@ namespace bookworm.Controllers
             }
 
             // Read the ePub file from the file system
-            var filePath = "wwwroot"+ Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", book.FilePath);
+            var filePath = "wwwroot" + Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", book.FilePath);
             if (!System.IO.File.Exists(filePath))
             {
                 return NotFound();
@@ -955,9 +958,9 @@ namespace bookworm.Controllers
         public IActionResult ApplySpecialOffer(int id)
         {
             var book = _bookRepository.GetBookByIdWithReviews(id);
-            
-           
-           
+
+
+
 
 
             return View(book);
@@ -998,7 +1001,7 @@ namespace bookworm.Controllers
             {
                 return NotFound();
             }
-            if (book.IsDiscounted!=null && book.IsDiscounted==true)
+            if (book.IsDiscounted != null && book.IsDiscounted == true)
             {
                 if (book.DiscountAmount.HasValue)
                 {
@@ -1008,7 +1011,7 @@ namespace bookworm.Controllers
             book.IsDiscounted = false;
             book.DiscountAmount = 0;
 
-           
+
 
             _context.Update(book);
             await _context.SaveChangesAsync();

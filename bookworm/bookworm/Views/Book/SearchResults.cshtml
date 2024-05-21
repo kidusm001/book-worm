@@ -1,6 +1,5 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+  Layout = null;
 }
 @using Microsoft.AspNetCore.Identity
 @using bookworm.ViewModel
@@ -8,143 +7,160 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 @{
-    var currentUser = await UserManager.GetUserAsync(User);
+  var currentUser = await UserManager.GetUserAsync(User);
 
 }
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BookWorm</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-    <link rel="stylesheet" href="~/css/styles.css" />
-    <link rel="stylesheet" href="~/css/search.css" />
-    <link rel="stylesheet" href="~/css/rating.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookWorm</title>
 
-    <script src="https://kit.fontawesome.com/44489b1897.js" crossorigin="anonymous"></script>
-    <script defer src="~/js/toggle.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script defer src="~/js/slider.js"></script>
-    <script defer src="~/js/pop-up.js"></script>
-    <script defer src="~/js/search.js"></script>
-  </head>
-  <body>
-    <div class="bg-container">
-      <div class="bg-one"></div>
-      <div class="bg-two"></div>
-    </div>
-    <div class="wrapper">
-        @Html.Partial("_Sidebar")
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="~/css/styles.css" />
+  <link rel="stylesheet" href="~/css/search.css" />
+  <link rel="stylesheet" href="~/css/rating.css" />
 
-      <main class="main-content">
-        <!-- Navbar -->
-        <nav class="navbar-content">
-          <div class="cont">
-            <div class="search-bar">
-                        <form asp-action="Search" method="get">
-                            <button type="submit"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button>
-                            <input type="text" placeholder="Search book name, author..." name="searchTerm" aria-label="Search Books" aria-describedby="button-search" />
-                        </form>
-            </div>
-            <div class="sign-in user-info-container">
-                        <div class="pp-img-container">
-                            <img src="@currentUser.ProfilePicturePath" alt="" />
-                        </div>
-                        <a href="#">@currentUser.FullName</a>
-                        <a href="#"><i class="fa-regular fa-bell"></i></a>
-            </div>
-          </div>
-        </nav>
-        <div class="filter-container">
-          <div class="head">
-            <h2>Filter</h2>
-          </div>
-          <div class="body">
-            <form asp-action="SearchFilter" method="get" class="filters">
-              <div class="filter">
-                            <input asp-for="SearchTerm" type="text" class="form-control" placeholder="Search..." name="SearchTerm" />
-              </div>
-              <div class="filter">
-                <div class="dropdown">
-                  <button class="dd-btn btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select genres</button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <ul class="genres">
-                                        @foreach (var category in Model.Categories)
-                                        {
-                                            <li>
-                                                <input  type="checkbox" name="GenreIds" id="@($"category-{category.Id}")" value="@category.Id" />
-                                                <label for="@($"category-{category.Id}")">@category.Name</label>
-                                            </li>
-                                        }
-                                       
-                    </ul>
-                  </div>
-                </div>
-              </div>
-                        
-              
-              <div class="filter p-range">
-                <p>Price</p>
-                <div class="range-container">
-                  <input asp-for= "MinPrice" type="text" placeholder="Min." />
-                  <p>to</p>
-                                <input asp-for="MaxPrice" type="text" placeholder="Max." />
-                </div>
-              </div>
-              <div class="filter">
-                <button class="btn" value="submit">
-                  <i class="fa-solid fa-filter"></i>
-                  <span>Filter</span>
-                </button>
-              </div>
+  <script src="https://kit.fontawesome.com/44489b1897.js" crossorigin="anonymous"></script>
+  <script defer src="~/js/toggle.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script defer src="~/js/slider.js"></script>
+  <script defer src="~/js/pop-up.js"></script>
+  <script defer src="~/js/search.js"></script>
+</head>
+
+<body>
+  <div class="bg-container">
+    <div class="bg-one"></div>
+    <div class="bg-two"></div>
+  </div>
+  <div class="wrapper">
+    @Html.Partial("_Sidebar")
+
+    <main class="main-content">
+      <!-- Navbar -->
+      <nav class="navbar-content">
+        <div class="cont">
+          <div class="search-bar">
+            <form asp-action="Search" method="get">
+              <button type="submit"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button>
+              <input type="text" placeholder="Search book name, author..." name="searchTerm" aria-label="Search Books"
+                aria-describedby="button-search" />
             </form>
-            <div class="book-list">
-                        @if (Model.books != null)
-                        {
-                            @foreach (var book in Model.books)
-                            {
-                                <div class="swiper-slide book-card" style="width: 10rem">
-                                    <a asp-action="Details" asp-route-id="@book.Id">
-                                        <div class="img-container">
-                                            <img src="@book.CoverImagePath" alt="" />
-                                        </div>
-                                        <div class="book-info-container">
-                                            <p class="book-title">@book.Title</p>
-                                            <p class="book-price">@book.Price</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            }
-                        }
-                        else{
-                            <div><p>No Books with the value of the search</p></div>
-                        }
-
-
+          </div>
+          <div class="sign-in user-info-container">
+            <div class="pp-img-container">
+              <img src="@currentUser.ProfilePicturePath" alt="" />
             </div>
+            <a href="#">@currentUser.FullName</a>
+            <form asp-controller="Account" asp-action="Logout"><button
+                style="background-color:transparent; border:none; cursor:pointer;" type="submit"><i
+                  class="fa-solid fa-right-from-bracket"></i></button></form>
           </div>
         </div>
+      </nav>
+      <div class="filter-container">
+        <div class="head">
+          <h2>Filter</h2>
+        </div>
+        <div class="body">
+          <form asp-action="SearchFilter" method="get" class="filters">
+            <div class="filter">
+              <input asp-for="SearchTerm" type="text" class="form-control" placeholder="Search..." name="SearchTerm" />
+            </div>
+            <div class="filter">
+              <div class="dropdown">
+                <button class="dd-btn btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">Select genres</button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <ul class="genres">
+                    @foreach (var category in Model.Categories)
+                    {
+                      <li>
+                        <input type="checkbox" name="GenreIds" id="@($"category-{category.Id}")" value="@category.Id" />
+                        <label for="@($"category-{category.Id}")">@category.Name</label>
+                      </li>
+                    }
 
-        @Html.Partial("_footer")
+                  </ul>
+                </div>
+              </div>
+            </div>
 
-        <!-- Button to open the dialog -->
 
-        <!-- Dialog Element -->
-      </main>
-    </div>
-    <script>
-        function updateRatingValue(value) {
-            document.getElementById('ratingValue').value = value;
-            document.getElementById('rating-num').textContent = value;
-        }
-    </script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <!-- Initialize Swiper -->
-  </body>
+            <div class="filter p-range">
+              <p>Price</p>
+              <div class="range-container">
+                <input asp-for="MinPrice" type="text" placeholder="Min." />
+                <p>to</p>
+                <input asp-for="MaxPrice" type="text" placeholder="Max." />
+              </div>
+            </div>
+            <div class="filter">
+              <button class="btn" value="submit">
+                <i class="fa-solid fa-filter"></i>
+                <span>Filter</span>
+              </button>
+            </div>
+          </form>
+          <div class="book-list">
+            @if (Model.books != null)
+            {
+              @foreach (var book in Model.books)
+              {
+                <div class="swiper-slide book-card" style="width: 10rem">
+                  <a asp-action="Details" asp-route-id="@book.Id">
+                    <div class="img-container">
+                      <img src="@book.CoverImagePath" alt="" />
+                    </div>
+                    <div class="book-info-container">
+                      <p class="book-title">@book.Title</p>
+                      <p class="book-price">@book.Price</p>
+                    </div>
+                  </a>
+                </div>
+              }
+            }
+            else
+            {
+              <div>
+                <p>No Books with the value of the search</p>
+              </div>
+            }
+
+
+          </div>
+        </div>
+      </div>
+
+      @Html.Partial("_footer")
+
+      <!-- Button to open the dialog -->
+
+      <!-- Dialog Element -->
+    </main>
+  </div>
+  <script>
+    function updateRatingValue(value) {
+      document.getElementById('ratingValue').value = value;
+      document.getElementById('rating-num').textContent = value;
+    }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <!-- Initialize Swiper -->
+</body>
+
 </html>

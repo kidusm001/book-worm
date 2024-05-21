@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', checkInputsOnLoad);
 
 const inputs = document.querySelectorAll('.login-detail');
 inputs.forEach((input) => {
-  input.addEventListener('input', () => {
+  input.addEventListener( () => {
     if (input.value.trim() !== '') {
       // Add a class when something is written inside the input
       input.classList.add('has-value');

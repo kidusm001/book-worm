@@ -111,39 +111,39 @@ body {
     gap: 4rem;
 }
 
-    .sidebar ul li {
-        margin-bottom: 10px;
-    }
+.sidebar ul li {
+    margin-bottom: 10px;
+}
 
-        .sidebar ul li a {
-            color: var(--primary-text-color);
-            text-decoration: none;
-            width: 6rem;
-            height: 6rem;
-            border-radius: 50%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            gap: 1rem;
-            transition: width 0.2s ease-in, background-color 0.2s linear;
-            font-family: 'Marcellus';
-            font-size: 2rem;
-            font-weight: 600;
-            padding: 0.8rem;
-        }
+.sidebar ul li a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    transition: width 0.2s ease-in, background-color 0.2s linear;
+    font-family: 'Marcellus';
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 0.8rem;
+}
 
-            .sidebar ul li a.active {
-                background-color: var(--active-link-bg);
-                color: var(--secondary-color);
-            }
+.sidebar ul li a.active {
+    background-color: var(--active-link-bg);
+    color: var(--secondary-color);
+}
 
-                .sidebar ul li a.active svg path {
-                    fill: var(--secondary-color);
-                }
+.sidebar ul li a.active svg path {
+    fill: var(--secondary-color);
+}
 
-                .sidebar ul li a.active:hover {
-                    background-color: var(--active-link-bg);
-                }
+.sidebar ul li a.active:hover {
+    background-color: var(--active-link-bg);
+}
 
 .sidebar[data-visible='true'] ul li a {
     width: 10vw;
@@ -154,7 +154,7 @@ body {
 .sidebar[data-visible='true'] .logo a {
     color: var(--primary-text-color);
     text-decoration: none;
-    width: 10vw;
+    /* width: 10vw; */
     height: 6rem;
     border-radius: 50%;
     display: flex;
@@ -218,7 +218,7 @@ body {
     width: 100vw;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+
 }
 
 /* Basic styles for the navbar */
@@ -453,6 +453,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 3rem;
 }
 
 .pp-img-container img {

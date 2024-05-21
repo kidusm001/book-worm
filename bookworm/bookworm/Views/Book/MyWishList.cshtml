@@ -15,6 +15,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,6 +31,7 @@
     <script defer src="~/js/slider.js"></script>
     <script defer src="~/js/pop-up.js"></script>
 </head>
+
 <body>
     <div class="bg-container">
         <div class="bg-one"></div>
@@ -45,7 +47,8 @@
                     <div class="search-bar">
                         <form asp-action="Search" method="get">
                             <button type="submit"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button>
-                            <input type="text" placeholder="Search book name, author..." name="searchTerm" aria-label="Search Books" aria-describedby="button-search" />
+                            <input type="text" placeholder="Search book name, author..." name="searchTerm"
+                                aria-label="Search Books" aria-describedby="button-search" />
                         </form>
                     </div>
                     <div class="sign-in user-info-container">
@@ -53,7 +56,9 @@
                             <img src="@currentUser.ProfilePicturePath" alt="" />
                         </div>
                         <a href="#">@currentUser.FullName</a>
-                        <a asp-controller="Account" asp-action="Logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+                        <form asp-controller="Account" asp-action="Logout"><button
+                                style="background-color:transparent; border:none; cursor:pointer;" type="submit"><i
+                                    class="fa-solid fa-right-from-bracket"></i></button></form>
                     </div>
                 </div>
             </nav>
@@ -97,7 +102,7 @@
                                 }
                                 else
                                 {
-                                    @foreach(var book in Model)
+                                    @foreach (var book in Model)
                                     {
                                         <div class="swiper-slide book-card" style="width: 10rem">
                                             <a asp-action="Details" asp-route-id="@book.Id">
@@ -127,4 +132,5 @@
 
     <!-- Initialize Swiper -->
 </body>
+
 </html>
