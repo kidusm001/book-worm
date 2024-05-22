@@ -145,7 +145,8 @@ namespace bookworm.Controllers
 
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
             }
-
+            model.ReturnUrl = returnUrl;
+            model.ExternalLogins = (await signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             return View(model);
 
 
@@ -210,7 +211,7 @@ namespace bookworm.Controllers
             {
                 // Get the email claim value
                 var email = info.Principal.FindFirstValue(ClaimTypes.Email);
-                
+
 
                 if (email != null)
                 {
@@ -224,9 +225,9 @@ namespace bookworm.Controllers
                             UserName = info.Principal.FindFirstValue(ClaimTypes.Email),
                             Email = info.Principal.FindFirstValue(ClaimTypes.Email),
                             FullName = info.Principal.FindFirstValue(ClaimTypes.Name),
-                            ProfilePicturePath= info.Principal.FindFirstValue("picture")
+                            ProfilePicturePath = info.Principal.FindFirstValue("picture")
                         };
-                        
+
                         await userManager.CreateAsync(user);
                         await userManager.AddToRoleAsync(user, "user");
                     }
@@ -546,7 +547,7 @@ namespace bookworm.Controllers
             }
 
             // Delete the user account
-            var result = await  userManager.DeleteAsync(user);
+            var result = await userManager.DeleteAsync(user);
             if (result.Succeeded)
             {
                 // Sign out the user and redirect to the home page or another appropriate page
@@ -594,7 +595,7 @@ namespace bookworm.Controllers
                     var user = await userManager.FindByEmailAsync(model.Email);
                     if (await userManager.IsInRoleAsync(user, "author"))
                     {
-                       
+
 
                         if (!string.IsNullOrEmpty(model.ReturnUrl))
                         {
@@ -614,7 +615,8 @@ namespace bookworm.Controllers
 
 
         }
-
+        //email: kidusmekuriayt@gmail.com
+        //password: "Mekonnen27"
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> AdminLogin(string returnUrl)
@@ -701,7 +703,7 @@ namespace bookworm.Controllers
 
         [HttpGet]
         [Authorize(Roles = "admin")]
-        
+
         [ValidateAntiForgeryToken]
         public IActionResult CreateAdminUser()
         {

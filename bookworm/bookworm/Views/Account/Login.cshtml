@@ -1,105 +1,12 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 @using bookworm.ViewModel;
 @model LogInViewModel
 
-@* <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-    <link rel="stylesheet" href="~/css/styles.css" />
-    <link rel="stylesheet" href="~/css/login.css" />
-    <script src="https://kit.fontawesome.com/44489b1897.js" crossorigin="anonymous"></script>
-    <script defer src="~/js/login.js"></script>
-</head>
-<body>
-    <div class="wrapper">
-      <div class="right-container">
-        <div class="illustration">
-          <img src="~/images/loginIllustration.png" alt="" />
-        </div>
-      </div>
-      <div class="left-container">
-        <div class="login-container">
-          <img src="~/images/logo-black.png" alt="Logo" />
-          <h1>Welcome back!</h1>
-          <p>Please enter your details</p>
-                @if (TempData["error"] != null)
-                {
-                    <div class="col-md-12 alert alert-danger">
-                        <span><b>Sorry!</b> - @TempData["error"]</span>
-                    </div>
-                }
-                <form asp-action="Login">
-            <div class="form-control">
-                        <label asp-for="EmailAddress" class="control-label"></label>
-                     
-                        <input asp-for="EmailAddress" class="form-control" placeholder="Email" />
-                        <span asp-validation-for="EmailAddress" class="text-danger"></span>
-                    </div>
-            <div class="form-control">
-                        <label asp-for="Password" class="control-label"></label>
-                        <input asp-for="Password" class="form-control" placeholder="******************" />
-                        <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="Remember-me-container">
-              <input type="checkbox" name="Remeber-me" id="" />
-              <span>Remember me</span>
-            </div>
-                    <input class="btn btn-outline-success float right" type="submit" value="Log in" />
-                    <a class="btn btn-outline-secondary" asp-controller="Book" asp-action="Index" >Cancel</a>
-            <button class="btn"><i class="fa-brands fa-google"></i> <span>Log in with Google</span></button>
-            <p class="text">Don't have an account? <a asp-controller="Account" asp-action="Register">Register</a></p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </body> *@
-@* ﻿@using RunGroopWebApp.ViewModels
-@model LoginViewModel
-
-@{
-    ViewData["Title"] = "Login";
-}
-<div class="row">
-    <div class="col-md-6 offset-3">
-        <p>
-            <h4>Log in to your account</h4>
-        </p>
-        @if(TempData["Error"] != null)
-        {
-            <div class="col-md-12 alert alert-danger">
-                <span><b>Sorry!</b> - @TempData["Error"]</span>
-            </div>
-        }
-        <div class="row">
-            <div class="col-md-8 offset-2">
-                <form asp-action="Login">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="EmailAddress" class="control-label"></label>
-                        <input asp-for="EmailAddress" class="form-control">
-                        <span asp-validation-for="EmailAddress" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Password" class="control-label"></label>
-                        <input asp-for="Password" class="form-control" />
-                        <span asp-validation-for="Password" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <input class="btn btn-outline-success float right" type="submit" value="Log in" />
-                        <a class="btn btn-outline-secondary" asp-controller="Club" asp-action="Index">Cancel</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> *@
-@* kidus try to much this and it will work <<=============================================================================================================<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< *@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -111,9 +18,11 @@
     <script defer src="~/js/login.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
     <script defer src="~/js/login-validation.js"></script>
 </head>
+
 <body>
     <div class="wrapper">
         <div class="right-container">
@@ -151,8 +60,8 @@
                         <label asp-for="RememberMe">Remember me</label>
                     </div>
                     <button type="submit" class="btn">Log in</button>
-                    
-                    
+
+
                 </form>
                 @{
                     if (Model.ExternalLogins == null || Model.ExternalLogins.Count == 0)
@@ -162,18 +71,18 @@
                     else
                     {
                         <form method="post" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl">
-                            
-                                @foreach (var provider in Model.ExternalLogins)
-                                {
-                                    <button type="submit" class="btn" 
-                                            name="provider" value="@provider.Name"
-                                            title="Login using your @provider.DisplayName account">
+
+                            @foreach (var provider in Model.ExternalLogins)
+                            {
+                                <button type="submit" class="btn" name="provider" value="@provider.Name"
+                                    title="Login using your @provider.DisplayName account">
                                     <i class="fa-brands fa-google"></i>
                                     <span>Log in with @provider.DisplayName</span>
-                                        
-                                    </button>
-                                }
-                            <p class="text">Don't have an account? <a asp-controller="Account" asp-action="Register">Register</a></p>
+
+                                </button>
+                            }
+                            <p class="text">Don't have an account? <a asp-controller="Account"
+                                    asp-action="Register">Register</a></p>
                         </form>
                     }
                 }
@@ -182,4 +91,5 @@
         </div>
     </div>
 </body>
+
 </html>
